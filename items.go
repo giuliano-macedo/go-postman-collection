@@ -6,11 +6,11 @@ import "encoding/json"
 // It can either be a request (Item) or a folder (ItemGroup).
 type Items struct {
 	// Common fields.
-	Name                    string      `json:"name"`
-	Description             string      `json:"description,omitempty"`
-	Variables               []*Variable `json:"variable,omitempty"`
-	Events                  []*Event    `json:"event,omitempty"`
-	ProtocolProfileBehavior interface{} `json:"protocolProfileBehavior,omitempty"`
+	Name                    string       `json:"name"`
+	Description             *Description `json:"description,omitempty"`
+	Variables               []*Variable  `json:"variable,omitempty"`
+	Events                  []*Event     `json:"event,omitempty"`
+	ProtocolProfileBehavior interface{}  `json:"protocolProfileBehavior,omitempty"`
 	// Fields specific to Item
 	ID        string      `json:"id,omitempty"`
 	Request   *Request    `json:"request,omitempty"`
@@ -22,25 +22,25 @@ type Items struct {
 
 // An Item is an entity which contain an actual HTTP request, and sample responses attached to it.
 type Item struct {
-	Name                    string      `json:"name"`
-	Description             string      `json:"description,omitempty"`
-	Variables               []*Variable `json:"variable,omitempty"`
-	Events                  []*Event    `json:"event,omitempty"`
-	ProtocolProfileBehavior interface{} `json:"protocolProfileBehavior,omitempty"`
-	ID                      string      `json:"id,omitempty"`
-	Request                 *Request    `json:"request,omitempty"`
-	Responses               []*Response `json:"response,omitempty"`
+	Name                    string       `json:"name"`
+	Description             *Description `json:"description,omitempty"`
+	Variables               []*Variable  `json:"variable,omitempty"`
+	Events                  []*Event     `json:"event,omitempty"`
+	ProtocolProfileBehavior interface{}  `json:"protocolProfileBehavior,omitempty"`
+	ID                      string       `json:"id,omitempty"`
+	Request                 *Request     `json:"request,omitempty"`
+	Responses               []*Response  `json:"response,omitempty"`
 }
 
 // A ItemGroup is an ordered set of requests.
 type ItemGroup struct {
-	Name                    string      `json:"name"`
-	Description             string      `json:"description,omitempty"`
-	Variables               []*Variable `json:"variable,omitempty"`
-	Events                  []*Event    `json:"event,omitempty"`
-	ProtocolProfileBehavior interface{} `json:"protocolProfileBehavior,omitempty"`
-	Items                   []*Items    `json:"item"`
-	Auth                    *Auth       `json:"auth,omitempty"`
+	Name                    string       `json:"name"`
+	Description             *Description `json:"description,omitempty"`
+	Variables               []*Variable  `json:"variable,omitempty"`
+	Events                  []*Event     `json:"event,omitempty"`
+	ProtocolProfileBehavior interface{}  `json:"protocolProfileBehavior,omitempty"`
+	Items                   []*Items     `json:"item"`
+	Auth                    *Auth        `json:"auth,omitempty"`
 }
 
 // CreateItem is a helper to create a new Item.

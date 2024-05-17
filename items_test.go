@@ -130,7 +130,7 @@ func TestItemsMarshalJSON(t *testing.T) {
 func TestCreateItem(t *testing.T) {
 	c := CreateItem(Item{
 		Name:        "An item",
-		Description: "A description",
+		Description: &Description{Content: "A description"},
 		Variables: []*Variable{
 			{
 				Name:  "variable-name",
@@ -171,7 +171,7 @@ func TestCreateItem(t *testing.T) {
 		t,
 		&Items{
 			Name:        "An item",
-			Description: "A description",
+			Description: &Description{Content: "A description"},
 			Variables: []*Variable{
 				{
 					Name:  "variable-name",
@@ -214,7 +214,7 @@ func TestCreateItem(t *testing.T) {
 func TestCreateItemGroup(t *testing.T) {
 	c := CreateItemGroup(ItemGroup{
 		Name:        "An item",
-		Description: "A description",
+		Description: &Description{Content: "A description"},
 		Variables: []*Variable{
 			{
 				Name:  "variable-name",
@@ -252,7 +252,7 @@ func TestCreateItemGroup(t *testing.T) {
 		t,
 		&Items{
 			Name:        "An item",
-			Description: "A description",
+			Description: &Description{Content: "A description"},
 			Variables: []*Variable{
 				{
 					Name:  "variable-name",
